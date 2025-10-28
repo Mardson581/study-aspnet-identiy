@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identity - ViewData["Title"]</title>
+    <title>Identity - @ViewData["Title"]</title>
 
     @* O RenderSection renderiza uma Section declarada no Layout filho com o mesmo nome *@
-    @RenderSection("css")
+    @RenderSection("css", false)
+    @RenderSection("javascript", false)
 </head>
 <body>
     @RenderBody()

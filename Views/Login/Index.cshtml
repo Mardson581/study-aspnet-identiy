@@ -4,7 +4,7 @@
     para o Layout pai
 *@
 @{
-    Layout = "~/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Login";
 }
 
@@ -25,12 +25,21 @@
         com o mesmo nome em algum Controller.
     *@
     <form action="/login" method="POST">
-        <label for="username">Nome de usuário: </label>
-        <input type="text" name="username" class="field" id="username"/>
+        <section>
+            <label for="username">Nome de usuário: </label>
+            <input type="text" name="username" class="field" id="username"/>
+        </section>
 
-        <label for="password">Senha: </label>
-        <input type="text" name="password" class="field" id="password"/>
+        <section>
+            <label for="password">Senha: </label>
+            <input type="text" name="password" class="field" id="password"/>
+        </section>
 
         <input type="submit" value="Login"/>
     </form>
 </main>
+
+@* Aqui estamos criando uma section que será renderizada no Layout pai *@
+@section css {
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+}
