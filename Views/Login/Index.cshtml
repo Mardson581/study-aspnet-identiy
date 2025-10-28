@@ -1,0 +1,36 @@
+@*
+    Aqui importarmos o layout padrão do site através do atributo Layout
+    Mas poderíamos definir outras propriedades aqui também, como ViewData[value] = <value> para ser repassado
+    para o Layout pai
+*@
+@{
+    Layout = "~/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Login";
+}
+
+@* É esta parte que é renderizada em RenderBody() do _Layout.cshtml *@
+<main>
+    @* Comandos como if,else,for,foreach são usandos no Razor precedidos de um @ *@
+    @if (ViewData["Message"] != null) 
+    {
+        <h1>@ViewData["Message"]</h1>
+    }
+    else
+    {
+        <h1>Quem é você?</h1>
+    }
+
+    @*
+        Os inputs são repassados para o middleware do ASP.NET e são recebidos por argumentos 
+        com o mesmo nome em algum Controller.
+    *@
+    <form action="/login" method="POST">
+        <label for="username">Nome de usuário: </label>
+        <input type="text" name="username" class="field" id="username"/>
+
+        <label for="password">Senha: </label>
+        <input type="text" name="password" class="field" id="password"/>
+
+        <input type="submit" value="Login"/>
+    </form>
+</main>
