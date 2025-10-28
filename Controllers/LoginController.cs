@@ -8,6 +8,7 @@ namespace Learn.Identity.Controllers;
 public class LoginController : Controller
 {
     private readonly IMessageService _service;
+
     public LoginController(IMessageService service)
     {
         _service = service;
@@ -23,6 +24,12 @@ public class LoginController : Controller
     [HttpPost]
     public IActionResult Login(string username, string password)
     {
+        // Devemos checar se o usuário enviou os parâmetros necessários e o ModelState nos ajuda com isso
+        if (!ModelState.IsValid)
+        {
+            return BadRequest("This endpoint requires username and password!");
+        }
+
         return Ok("Trouxa!");
     }
 }
