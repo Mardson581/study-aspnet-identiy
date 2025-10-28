@@ -12,6 +12,7 @@ builder.Services.AddSingleton<IMessageService, MessageService>();
 
 var app = builder.Build();
 
+// Importante para o Asp.Net criar endpoints de todos os Controller com a anotação Route
 app.MapControllers();
 app.UseStaticFiles();
 
