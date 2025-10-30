@@ -2,6 +2,9 @@ using Learn.Identity.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Muda o o Logging Provider padrão da aplicação para somente Console
+builder.Logging.AddConsole();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
