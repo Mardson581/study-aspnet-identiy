@@ -1,4 +1,5 @@
 using Learn.Identity.Data;
+using Learn.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
