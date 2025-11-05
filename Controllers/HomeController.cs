@@ -24,16 +24,17 @@ public class HomeController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [HttpPost]
-    public async Task<IActionResult> Register(string email, string password)
+    public async Task<IActionResult> Register(string username, string email, string password)
     {
         if (!ModelState.IsValid)
             return BadRequest("This endpoint requires email and password");
         
-        ApplicationUser user = new ApplicationUser { UserName = email, Email = email, NormalizedEmail = email.ToUpper() };
+        ApplicationUser user = new ApplicationUser { UserName = username, Email = email, NormalizedEmail = email.ToUpper() };
         var result = await _userManager.CreateAsync(user, password);
 
         if (!result.Succeeded)
             return BadRequest(result.Errors);
+            
         return Ok("User created! Go to /login");
     }
 
