@@ -67,4 +67,13 @@ public class HomeController : ControllerBase
     {
         return Ok("Flag{Identity-is-Good!}");
     }
+
+    // O usuário deve ter a opção de fazer logout
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        await _signManager.SignOutAsync();
+        return Ok();
+    }
 }
